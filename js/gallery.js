@@ -81,14 +81,14 @@ function onLargeImage(event) {
     return;
   }
   const currentImage = event.target.closest(".gallery-image");
-  // const imageDataset = currentImage.dataset.source;
+  const imageDataset = currentImage.dataset.source;
   // const image = images.find(item => item.original === imageDataset);
 
   // console.log({ currentImage });
 
   const instance = basicLightbox.create(
     ` <div class="modal">
-      <img src="${currentImage.src}" alt="${currentImage.alt}" width="1112" height="640" ></img>
+      <img src="${imageDataset}" alt="${currentImage.alt}"  ></img>
     </div>`
   );
   instance.show();
