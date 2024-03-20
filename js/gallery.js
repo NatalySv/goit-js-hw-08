@@ -65,13 +65,13 @@ const images = [
 ];
 
 const gallery = document.querySelector(".gallery");
-const marcup = images
+const markup = images
   .map(
     image =>
       `<li class="gallery-item"><a class="gallery-link" href="${image.original} "><img class="gallery-image" src="${image.preview}" data-source="${image.original}" alt="${image.description}"/></a></li>`
   )
   .join("");
-gallery.insertAdjacentHTML("beforeend", marcup);
+gallery.insertAdjacentHTML("beforeend", markup);
 
 gallery.addEventListener("click", onLargeImage);
 
