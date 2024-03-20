@@ -80,16 +80,26 @@ function onLargeImage(event) {
   if (event.target === event.currentTarget) {
     return;
   }
-  const currentImage = event.target.closest(".gallery-image");
+  const currentImage = event.target;
   const imageDataset = currentImage.dataset.source;
   const image = images.find(item => item.original === imageDataset);
 
-  // console.log({ currentImage });
-
   const instance = basicLightbox.create(
-    ` <div class="modal">
-      <img src="${image.original}" alt="${image.description}"  ></img>
-    </div>`
+    ` <img class="modal" src="${image.original}" alt="${image.description}"></img>`,
+    {
+      onShow: instance => {
+        document.addEventListener("keydown", onEscPress);
+      },
+      onClose: instance => {
+        document.removeEventListener("keydown", onEscPress);
+      },
+    }
   );
   instance.show();
+
+  function onEscPress(event) {
+    if (event.code === "Escape") {
+      instance.close();
+    }
+  }
 }
