@@ -98,8 +98,9 @@ function onLargeImage(event) {
   instance.show();
 
   function onEscPress(event) {
-    if (event.code === "Escape") {
-      instance.close();
-    }
+    // if (event.code === "Escape") {
+    //   instance.close();
+    // }
+    instance.close();
   }
 }
