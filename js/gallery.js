@@ -81,6 +81,9 @@ function onLargeImage(event) {
   // if (event.target === event.currentTarget) {
   //   return;
   // }
+  // if (event.target.nodeName !== "IMG") {
+  //   return;
+  // }
   if (!event.target.classList.contains("gallery-image")) {
     return;
   }
