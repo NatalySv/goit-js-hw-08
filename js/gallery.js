@@ -77,9 +77,14 @@ gallery.addEventListener("click", onLargeImage);
 
 function onLargeImage(event) {
   event.preventDefault();
-  if (event.target === event.currentTarget) {
+
+  // if (event.target === event.currentTarget) {
+  //   return;
+  // }
+  if (!event.target.classList.contains("gallery-image")) {
     return;
   }
+
   const currentImage = event.target;
   const imageDataset = currentImage.dataset.source;
   const image = images.find(item => item.original === imageDataset);
