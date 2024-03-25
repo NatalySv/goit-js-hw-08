@@ -68,9 +68,10 @@ const gallery = document.querySelector(".gallery");
 const markup = images
   .map(
     image =>
-      `<li class="gallery-item"><a class="gallery-link" href="${image.original} "><img class="gallery-image" src="${image.preview}" data-source="${image.original}" alt="${image.description}"/></a></li>`
+      `<li class="gallery-item"><a class="gallery-link" href="${image.original}"><img class="gallery-image" src="${image.preview}" data-source="${image.original}" alt="${image.description}"/></a></li>`
   )
   .join("");
+
 gallery.insertAdjacentHTML("beforeend", markup);
 
 gallery.addEventListener("click", onLargeImage);
@@ -108,7 +109,7 @@ function onLargeImage(event) {
   function onEscPress(event) {
     // if (event.code === "Escape") {
     //   instance.close();
-    // }
-    instance.close();
+    // } // закрытие модалки по "Escape"
+    instance.close(); //  закрытие модалки любой кнопкой
   }
 }
